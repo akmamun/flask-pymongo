@@ -16,21 +16,7 @@ class Database(object):
         inserted = self.db[collection_name].insert_one(element)  # insert data to db
         return str(inserted.inserted_id)
 
-    def update(self, id, element, collection_name):
-        criteria = {"_id": ObjectId(id)}
-
-        element["updated"] = datetime.now()
-        set_obj = {"$set": element}  # update value
-
-        updated = self.db[collection_name].update_one(criteria, set_obj)
-        if updated.matched_count == 1:
-            return "Record Successfully Updated"
-
-    def delete(self, id, collection_name):
-        deleted = self.db[collection_name].delete_one({"_id": ObjectId(id)})
-        return bool(deleted.deleted_count)
-
-
+    
     def find(self, criteria, collection_name, projection=None, sort=None, limit=0, cursor=False):  # find all from db
         if "_id" in criteria:
             criteria["_id"] = ObjectId(criteria["_id"])
@@ -55,7 +41,26 @@ class Database(object):
         if found is None:
             return not found
 
-        return str(found)
+        elif "_id" in found:
+            found["_id"] = str(found["_id"])
+
+        return found
+
+    def update(self, id, element, collection_name):
+        criteria = {"_id": ObjectId(id)}
+
+        element["updated"] = datetime.now()
+        set_obj = {"$set": element}  # update value
+
+        updated = self.db[collection_name].update_one(criteria, set_obj)
+        if updated.matched_count == 1:
+            return "Record Successfully Updated"
+
+    def delete(self, id, collection_name):
+        deleted = self.db[collection_name].delete_one({"_id": ObjectId(id)})
+        return bool(deleted.deleted_count)
+
+
 
 
 

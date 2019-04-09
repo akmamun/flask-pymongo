@@ -7,7 +7,7 @@ class Todo(object):
         self.validator = Validator()
         self.db = Database()
 
-        self.collection_name = 'todo'  # collection name
+        self.collection_name = 'todos'  # collection name
 
         self.fields = {
             "title": "string",
