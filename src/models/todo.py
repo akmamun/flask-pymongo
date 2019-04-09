@@ -7,13 +7,12 @@ class Todo(object):
         self.validator = Validator()
         self.db = Database()
 
-        self.collection_name = 'todos'  # collection name
+        self.collection_name = 'todo'  # collection name
 
         self.fields = {
             "title": "string",
             "body": "string",
-            "created": "datetime",
-            "updated": "datetime",
+            "created": "datetime"
         }
 
         self.create_required_fields = ["title", "body"]
@@ -45,3 +44,4 @@ class Todo(object):
 
     def delete(self, id):
         return self.db.delete(id, self.collection_name)
+

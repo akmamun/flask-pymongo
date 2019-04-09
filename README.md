@@ -1,5 +1,6 @@
-## Model Based Custom Validator design for Python (Flask)
-#### Model based custom validation for python. Use Flask server and mongo db. Integrate with any API development.  
+## Model Based Restful Flask and Mongo DB
+### Note: Front-end React API Integration Here [react-api-integration](https://github.com/mrxmamun/react-api-integration.git)
+#### Model based restful flask (python) and mongo db. Integrate with any API development.  
 <p align="center">
   <img width="280" height="160" src="https://kenya-tech.com/wp-content/uploads/2019/01/flask-python.png">
 </p>
@@ -59,11 +60,11 @@ update_optional_fields = []
 #### List of Todo Routes
 | Request | Endpoint |  Details |
 | --- | --- | --- |
-| `GET` | `http://127.0.0.1:5000/todos`| Get All|
-| `GET` | `http://127.0.0.1:5000/todos/todo_id`| Get Single Id|
-| `POST` | `http://127.0.0.1:5000/todos`| Insert One|
-| `PUT` | `http://127.0.0.1:5000/todos/todo_id`| Update One|
-| `DELETE` | `http://127.0.0.1:5000/todos/todo_id`| Delete One|
+| `GET` | `http://127.0.0.1:5000/api/v1/todos`| Get All|
+| `GET` | `http://127.0.0.1:5000/api/v1/todos/todo_id`| Get Single Id|
+| `POST` | `http://127.0.0.1:5000/api/v1/todos`| Insert One|
+| `PUT` | `http://127.0.0.1:5000/api/v1/todos/todo_id`| Update One|
+| `DELETE` | `http://127.0.0.1:5000/api/v1/todos/todo_id`| Delete One|
 
 - To see route list type cli `flask routes`
 
