@@ -7,7 +7,8 @@ todo = todo.Todo()
 
 class TodoCollection(Resource):
     def get(self):
-        return todo.find({})
+        if request.method == "GET":
+            return todo.find({})
 
     def post(self):
         title = request.form['title']
