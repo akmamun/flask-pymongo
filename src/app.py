@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
-
+ 
 from views.todos import TodoCollection, Todo
 
 app = Flask(__name__)

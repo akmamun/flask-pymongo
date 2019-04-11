@@ -17,7 +17,8 @@ parser.add_argument("body")
 
 class TodoCollection(Resource):
     def get(self):
-        return todo.find({})
+        if request.method == "GET":
+            return todo.find({})
 
     def post(self):
         args = parser.parse_args()
