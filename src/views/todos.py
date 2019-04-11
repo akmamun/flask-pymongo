@@ -1,8 +1,18 @@
 from flask import request
 from flask_restful import Resource
+from flask_restful.reqparse import RequestParser
+import json
+
 from models import todo
 
 todo = todo.Todo()
+
+
+parser = RequestParser()
+
+parser.add_argument("title")
+parser.add_argument("body")
+
 
 
 class TodoCollection(Resource):
@@ -10,9 +20,8 @@ class TodoCollection(Resource):
         return todo.find({})
 
     def post(self):
-        title = request.form['title']
-        body = request.form['body']
-        response = todo.create({'title': title, 'body': body})
+        args = parser.parse_args()
+        response = todo.create({"title": args["title"], "body":args["body"]})
         return response, 201
 
 
@@ -22,9 +31,8 @@ class Todo(Resource):
         return todo.find_by_id(todo_id)
 
     def put(self, todo_id):
-        title = request.form['title']
-        body = request.form['body']
-        response = todo.update(todo_id, {'title': title, 'body': body})
+        args = parser.parse_args()
+        response = todo.update(todo_id, {"title": args["title"], "body":args["body"]})
         return response, 201
 
     def delete(self, todo_id):

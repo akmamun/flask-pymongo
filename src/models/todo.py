@@ -6,13 +6,13 @@ class Todo(object):
     def __init__(self):
         self.validator = Validator()
         self.db = Database()
-
         self.collection_name = 'todos'  # collection name
 
         self.fields = {
             "title": "string",
             "body": "string",
-            "created": "datetime"
+            "created": "datetime",
+	        "updated": "datetime"
         }
 
         self.create_required_fields = ["title", "body"]
@@ -21,7 +21,7 @@ class Todo(object):
         self.create_optional_fields = []
 
         # Fields required for UPDATE
-        self.update_required_fields = ["title", "body"]
+        self.update_required_fields = []
 
         # Fields optional for UPDATE
         self.update_optional_fields = []
