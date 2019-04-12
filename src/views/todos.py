@@ -1,4 +1,4 @@
-from flask import request
+from flask import request,jsonify
 from flask_restful import Resource
 from flask_restful.reqparse import RequestParser
 import json
@@ -17,8 +17,7 @@ parser.add_argument("body")
 
 class TodoCollection(Resource):
     def get(self):
-        if request.method == "GET":
-            return todo.find({})
+     	return jsonify(todo.find({}))  
 
     def post(self):
         args = parser.parse_args()
@@ -29,7 +28,7 @@ class TodoCollection(Resource):
 class Todo(Resource):
 
     def get(self, todo_id):
-        return todo.find_by_id(todo_id)
+        return jsonify(todo.find_by_id(todo_id))
 
     def put(self, todo_id):
         args = parser.parse_args()

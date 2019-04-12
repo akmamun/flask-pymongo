@@ -31,8 +31,6 @@ class Database(object):
         for i in range(len(found)):  # to serialize object id need to convert string
             if "_id" in found[i]:
                 found[i]["_id"] = str(found[i]["_id"])
-                found[i]["created"] = str(found[i]["created"])
-                found[i]["updated"] = str(found[i]["updated"])
 
         return found
 
