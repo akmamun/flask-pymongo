@@ -21,7 +21,7 @@ class Todo(object):
         self.create_optional_fields = []
 
         # Fields required for UPDATE
-        self.update_required_fields = []
+        self.update_required_fields = ["title", "body"]
 
         # Fields optional for UPDATE
         self.update_optional_fields = []
